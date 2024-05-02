@@ -44,7 +44,7 @@ def main():
     unrated_matches = unrated_data["data"]["matches"]
     compe_matches = compe_data["data"]["matches"]
 
-    engine = jinja2.Template(pathlib.Path("template.html").read_text())
+    engine = jinja2.Template(pathlib.Path("template-overview.html").read_text())
     rendered = engine.render(
         unrated_matches=unrated_matches,
         compe_matches=compe_matches,
