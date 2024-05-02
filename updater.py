@@ -15,6 +15,22 @@ load_dotenv()
 # Your Valorant's nickname/gamertag e.g: kizu#movq
 GAMERTAG = quote(os.environ.get("GAMERTAG", ""))
 
+def get_rating(value: int):
+    if value == int(1e3):
+        return "1k"
+    elif value >= 825:
+        return "s"
+    elif value >= 650:
+        return "a"
+    elif value >= 475:
+        return "b"
+    elif value >= 300:
+        return "c"
+    else:
+        return "d"
+
+def get_rating_img(value: int):
+    return f"https://trackercdn.com/cdn/tracker.gg/img/tracker-score/trn-rating-{get_rating(value)}.svg"
 
 def main():
     s = cloudscraper.create_scraper()
@@ -32,6 +48,7 @@ def main():
     rendered = engine.render(
         unrated_matches=unrated_matches,
         compe_matches=compe_matches,
+        get_rating_img=get_rating_img,
         ago=timeago.format,
         date=dateparser.parse,
         tz=tz,

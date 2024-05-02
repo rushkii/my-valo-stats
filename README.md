@@ -19,7 +19,7 @@
         </td>
         <td>
           <b>
-            Competitive • 13 hours ago
+            Competitive • 15 hours ago
             <br>
             Sunset
           </b>
@@ -33,6 +33,8 @@
           <b>13:7</b>
         </td>
         <td align="center">
+          <img src="https://trackercdn.com/cdn/tracker.gg/img/tracker-score/trn-rating-b.svg" width="40">
+          <br>
           <b>585</b>
         </td>
         <td align="center">
@@ -51,7 +53,7 @@
         </td>
         <td>
           <b>
-            Competitive • 14 hours ago
+            Competitive • 15 hours ago
             <br>
             Bind
           </b>
@@ -65,6 +67,8 @@
           <b>13:1</b>
         </td>
         <td align="center">
+          <img src="https://trackercdn.com/cdn/tracker.gg/img/tracker-score/trn-rating-s.svg" width="40">
+          <br>
           <b>928</b>
         </td>
         <td align="center">
@@ -83,7 +87,7 @@
         </td>
         <td>
           <b>
-            Competitive • 14 hours ago
+            Competitive • 16 hours ago
             <br>
             Lotus
           </b>
@@ -97,6 +101,8 @@
           <b>13:10</b>
         </td>
         <td align="center">
+          <img src="https://trackercdn.com/cdn/tracker.gg/img/tracker-score/trn-rating-s.svg" width="40">
+          <br>
           <b>940</b>
         </td>
         <td align="center">
@@ -127,7 +133,7 @@
         </td>
         <td>
           <b>
-            Normal • 16 hours ago
+            Normal • 17 hours ago
             <br>
             Ascent
           </b>
@@ -151,7 +157,7 @@
         </td>
         <td>
           <b>
-            Normal • 17 hours ago
+            Normal • 18 hours ago
             <br>
             Bind
           </b>
@@ -175,7 +181,7 @@
         </td>
         <td>
           <b>
-            Normal • 17 hours ago
+            Normal • 19 hours ago
             <br>
             Split
           </b>
