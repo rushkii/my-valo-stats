@@ -1,0 +1,43 @@
+<h3>Match History (Unrated)</h3>
+<table>
+  <tr>
+    <th>#</th>
+    <th>W/L</th>
+    <th>Agents</th>
+    <th>Map</th>
+    <th>Rounds</th>
+    <th>K/D/A</th>
+    <th>Link</th>
+  </tr>
+  {%- for i in range(unrated_matches|length) -%}
+    <tr>
+      <td>{{ i + 1 }}</td>
+      <td align="center">
+        <b>{{ "Win" if unrated_matches[i].metadata.result == "victory" else "Lose" }}</b>
+      </td>
+      {%- for segs in unrated_matches[i].segments -%}
+        <td align="center">
+          <img src="{{ segs.metadata.agentImageUrl }}" width="50">
+        </td>
+        <td>
+          <b>
+            {{ unrated_matches[i].metadata.modeName }} • {{ ago(date(unrated_matches[i].metadata.timestamp).astimezone(tz), now) }}
+            <br>
+            {{ unrated_matches[i].metadata.mapName }}
+          </b>
+        </td>
+        <td align="center">
+          <b>{{ segs.stats.roundsWon.value }}:{{ segs.stats.roundsLost.value }}</b>
+        </td>
+        <td align="center">
+          <b>{{ segs.stats.kills.value }}/{{ segs.stats.deaths.value }}/{{ segs.stats.assists.value }}</b>
+        </td>
+        <td>
+          <a href="./matches/{{ unrated_matches[i].attributes.id }}.md">
+            Details
+          </a>
+        </td>
+        {%- endfor -%}
+    </tr>
+  {%- endfor -%}
+</table>
