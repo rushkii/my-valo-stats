@@ -7,7 +7,7 @@
     <th>Map</th>
     <th>Rank</th>
     <th>Rounds</th>
-    <th>Combat Score</th>
+    <th>Performance Score</th>
     <th>K/D/A</th>
     <th>Link</th>
   </tr><tr>
@@ -53,7 +53,7 @@
         </td>
         <td>
           <b>
-            Competitive • 15 hours ago
+            Competitive • 16 hours ago
             <br>
             Bind
           </b>
@@ -133,7 +133,7 @@
         </td>
         <td>
           <b>
-            Normal • 17 hours ago
+            Normal • 18 hours ago
             <br>
             Ascent
           </b>
