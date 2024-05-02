@@ -1,3 +1,113 @@
+<h3>Match History (Competitive)</h3>
+<table>
+  <tr>
+    <th>#</th>
+    <th>W/L</th>
+    <th>Agents</th>
+    <th>Map</th>
+    <th>Rank</th>
+    <th>Rounds</th>
+    <th>Combat Score</th>
+    <th>K/D/A</th>
+    <th>Link</th>
+  </tr><tr>
+      <td>1</td>
+      <td align="center">
+        <b>Win</b>
+      </td><td align="center">
+          <img src="https://titles.trackercdn.com/valorant-api/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png" width="50">
+        </td>
+        <td>
+          <b>
+            Competitive • 13 hours ago
+            <br>
+            Sunset
+          </b>
+        </td>
+        <td align="center">
+          <img src="https://trackercdn.com/cdn/tracker.gg/valorant/icons/tiersv2/0.png" width="50">
+          <br>
+          <b>Unranked</b>
+        </td>
+        <td align="center">
+          <b>13:7</b>
+        </td>
+        <td align="center">
+          <b>585</b>
+        </td>
+        <td align="center">
+          <b>15/13/3</b>
+        </td>
+        <td>
+          <a href="./matches/0d9eaad3-41cc-48b7-ac4a-0d658d8666e3.md">
+            Details
+          </a>
+        </td></tr><tr>
+      <td>2</td>
+      <td align="center">
+        <b>Win</b>
+      </td><td align="center">
+          <img src="https://titles.trackercdn.com/valorant-api/agents/8e253930-4c05-31dd-1b6c-968525494517/displayicon.png" width="50">
+        </td>
+        <td>
+          <b>
+            Competitive • 14 hours ago
+            <br>
+            Bind
+          </b>
+        </td>
+        <td align="center">
+          <img src="https://trackercdn.com/cdn/tracker.gg/valorant/icons/tiersv2/0.png" width="50">
+          <br>
+          <b>Unranked</b>
+        </td>
+        <td align="center">
+          <b>13:1</b>
+        </td>
+        <td align="center">
+          <b>928</b>
+        </td>
+        <td align="center">
+          <b>14/3/5</b>
+        </td>
+        <td>
+          <a href="./matches/289b942a-9e1e-47a9-ab0d-c6ffb659b9ad.md">
+            Details
+          </a>
+        </td></tr><tr>
+      <td>3</td>
+      <td align="center">
+        <b>Win</b>
+      </td><td align="center">
+          <img src="https://titles.trackercdn.com/valorant-api/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png" width="50">
+        </td>
+        <td>
+          <b>
+            Competitive • 14 hours ago
+            <br>
+            Lotus
+          </b>
+        </td>
+        <td align="center">
+          <img src="https://trackercdn.com/cdn/tracker.gg/valorant/icons/tiersv2/0.png" width="50">
+          <br>
+          <b>Unranked</b>
+        </td>
+        <td align="center">
+          <b>13:10</b>
+        </td>
+        <td align="center">
+          <b>940</b>
+        </td>
+        <td align="center">
+          <b>27/11/5</b>
+        </td>
+        <td>
+          <a href="./matches/9ce6dd8f-6621-4adc-a0d4-a7b8f212c8a0.md">
+            Details
+          </a>
+        </td></tr></table>
+
 <h3>Match History (Unrated)</h3>
 <table>
   <tr>
@@ -11,13 +121,85 @@
   </tr><tr>
       <td>1</td>
       <td align="center">
+        <b>Win</b>
+      </td><td align="center">
+          <img src="https://titles.trackercdn.com/valorant-api/agents/8e253930-4c05-31dd-1b6c-968525494517/displayicon.png" width="50">
+        </td>
+        <td>
+          <b>
+            Normal • 16 hours ago
+            <br>
+            Ascent
+          </b>
+        </td>
+        <td align="center">
+          <b>13:11</b>
+        </td>
+        <td align="center">
+          <b>11/18/8</b>
+        </td>
+        <td>
+          <a href="./matches/1a527088-691e-480a-8647-ec79a5c71e5d.md">
+            Details
+          </a>
+        </td></tr><tr>
+      <td>2</td>
+      <td align="center">
+        <b>Lose</b>
+      </td><td align="center">
+          <img src="https://titles.trackercdn.com/valorant-api/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/displayicon.png" width="50">
+        </td>
+        <td>
+          <b>
+            Normal • 17 hours ago
+            <br>
+            Bind
+          </b>
+        </td>
+        <td align="center">
+          <b>7:13</b>
+        </td>
+        <td align="center">
+          <b>7/16/6</b>
+        </td>
+        <td>
+          <a href="./matches/66671df3-7b5a-4ef3-89bb-81366c7d1696.md">
+            Details
+          </a>
+        </td></tr><tr>
+      <td>3</td>
+      <td align="center">
+        <b>Win</b>
+      </td><td align="center">
+          <img src="https://titles.trackercdn.com/valorant-api/agents/a3bfb853-43b2-7238-a4f1-ad90e9e46bcc/displayicon.png" width="50">
+        </td>
+        <td>
+          <b>
+            Normal • 17 hours ago
+            <br>
+            Split
+          </b>
+        </td>
+        <td align="center">
+          <b>13:7</b>
+        </td>
+        <td align="center">
+          <b>14/16/3</b>
+        </td>
+        <td>
+          <a href="./matches/09f8822a-4620-41b5-bde8-01d3bc69ff23.md">
+            Details
+          </a>
+        </td></tr><tr>
+      <td>4</td>
+      <td align="center">
         <b>Lose</b>
       </td><td align="center">
           <img src="https://titles.trackercdn.com/valorant-api/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png" width="50">
         </td>
         <td>
           <b>
-            Normal • 13 hours ago
+            Normal • 1 day ago
             <br>
             Lotus
           </b>
@@ -33,7 +215,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>2</td>
+      <td>5</td>
       <td align="center">
         <b>Win</b>
       </td><td align="center">
@@ -41,7 +223,7 @@
         </td>
         <td>
           <b>
-            Normal • 13 hours ago
+            Normal • 1 day ago
             <br>
             Lotus
           </b>
@@ -57,7 +239,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>3</td>
+      <td>6</td>
       <td align="center">
         <b>Lose</b>
       </td><td align="center">
@@ -65,7 +247,7 @@
         </td>
         <td>
           <b>
-            Normal • 14 hours ago
+            Normal • 1 day ago
             <br>
             Icebox
           </b>
@@ -81,7 +263,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>4</td>
+      <td>7</td>
       <td align="center">
         <b>Win</b>
       </td><td align="center">
@@ -89,7 +271,7 @@
         </td>
         <td>
           <b>
-            Normal • 15 hours ago
+            Normal • 1 day ago
             <br>
             Ascent
           </b>
@@ -105,7 +287,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>5</td>
+      <td>8</td>
       <td align="center">
         <b>Win</b>
       </td><td align="center">
@@ -113,7 +295,7 @@
         </td>
         <td>
           <b>
-            Normal • 16 hours ago
+            Normal • 1 day ago
             <br>
             Breeze
           </b>
@@ -129,7 +311,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>6</td>
+      <td>9</td>
       <td align="center">
         <b>Lose</b>
       </td><td align="center">
@@ -137,7 +319,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Bind
           </b>
@@ -153,7 +335,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>7</td>
+      <td>10</td>
       <td align="center">
         <b>Win</b>
       </td><td align="center">
@@ -161,7 +343,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Ascent
           </b>
@@ -177,7 +359,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>8</td>
+      <td>11</td>
       <td align="center">
         <b>Win</b>
       </td><td align="center">
@@ -185,7 +367,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Icebox
           </b>
@@ -201,7 +383,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>9</td>
+      <td>12</td>
       <td align="center">
         <b>Win</b>
       </td><td align="center">
@@ -209,7 +391,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Lotus
           </b>
@@ -225,7 +407,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>10</td>
+      <td>13</td>
       <td align="center">
         <b>Win</b>
       </td><td align="center">
@@ -233,7 +415,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Ascent
           </b>
@@ -249,7 +431,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>11</td>
+      <td>14</td>
       <td align="center">
         <b>Lose</b>
       </td><td align="center">
@@ -257,7 +439,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Breeze
           </b>
@@ -273,7 +455,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>12</td>
+      <td>15</td>
       <td align="center">
         <b>Lose</b>
       </td><td align="center">
@@ -281,7 +463,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Bind
           </b>
@@ -297,7 +479,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>13</td>
+      <td>16</td>
       <td align="center">
         <b>Lose</b>
       </td><td align="center">
@@ -305,7 +487,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Icebox
           </b>
@@ -321,7 +503,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>14</td>
+      <td>17</td>
       <td align="center">
         <b>Win</b>
       </td><td align="center">
@@ -329,7 +511,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Ascent
           </b>
@@ -345,7 +527,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>15</td>
+      <td>18</td>
       <td align="center">
         <b>Lose</b>
       </td><td align="center">
@@ -353,7 +535,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Icebox
           </b>
@@ -369,7 +551,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>16</td>
+      <td>19</td>
       <td align="center">
         <b>Lose</b>
       </td><td align="center">
@@ -377,7 +559,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Ascent
           </b>
@@ -393,7 +575,7 @@
             Details
           </a>
         </td></tr><tr>
-      <td>17</td>
+      <td>20</td>
       <td align="center">
         <b>Win</b>
       </td><td align="center">
@@ -401,7 +583,7 @@
         </td>
         <td>
           <b>
-            Normal • 1 day ago
+            Normal • 2 days ago
             <br>
             Sunset
           </b>
@@ -414,78 +596,6 @@
         </td>
         <td>
           <a href="./matches/9ea601a9-b8a6-44fd-a2d7-9a9314891894.md">
-            Details
-          </a>
-        </td></tr><tr>
-      <td>18</td>
-      <td align="center">
-        <b>Win</b>
-      </td><td align="center">
-          <img src="https://titles.trackercdn.com/valorant-api/agents/8e253930-4c05-31dd-1b6c-968525494517/displayicon.png" width="50">
-        </td>
-        <td>
-          <b>
-            Normal • 1 day ago
-            <br>
-            Bind
-          </b>
-        </td>
-        <td align="center">
-          <b>13:2</b>
-        </td>
-        <td align="center">
-          <b>15/7/5</b>
-        </td>
-        <td>
-          <a href="./matches/5c82848f-02c3-40f7-94db-591c015d069d.md">
-            Details
-          </a>
-        </td></tr><tr>
-      <td>19</td>
-      <td align="center">
-        <b>Win</b>
-      </td><td align="center">
-          <img src="https://titles.trackercdn.com/valorant-api/agents/a3bfb853-43b2-7238-a4f1-ad90e9e46bcc/displayicon.png" width="50">
-        </td>
-        <td>
-          <b>
-            Normal • 2 days ago
-            <br>
-            Icebox
-          </b>
-        </td>
-        <td align="center">
-          <b>13:9</b>
-        </td>
-        <td align="center">
-          <b>23/15/7</b>
-        </td>
-        <td>
-          <a href="./matches/9f2aea7b-0f82-4b5c-b862-733d907df195.md">
-            Details
-          </a>
-        </td></tr><tr>
-      <td>20</td>
-      <td align="center">
-        <b>Win</b>
-      </td><td align="center">
-          <img src="https://titles.trackercdn.com/valorant-api/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/displayicon.png" width="50">
-        </td>
-        <td>
-          <b>
-            Normal • 2 days ago
-            <br>
-            Ascent
-          </b>
-        </td>
-        <td align="center">
-          <b>6:1</b>
-        </td>
-        <td align="center">
-          <b>2/4/4</b>
-        </td>
-        <td>
-          <a href="./matches/2baf46d2-1608-4cc0-a2ae-3c58775c48b5.md">
             Details
           </a>
         </td></tr></table>

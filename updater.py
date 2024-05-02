@@ -18,16 +18,20 @@ GAMERTAG = quote(os.environ.get("GAMERTAG", ""))
 
 def main():
     s = cloudscraper.create_scraper()
-    tracker_url = f"https://api.tracker.gg/api/v2/valorant/standard/matches/riot/{GAMERTAG}?type=unrated&agent=all&map=all"
+    tracker_url = f"https://api.tracker.gg/api/v2/valorant/standard/matches/riot/{GAMERTAG}"
     tz = pytz.timezone("Asia/Jakarta")
 
-    res = s.get(tracker_url)
-    data = res.json()
-    unrated_matches = data["data"]["matches"]
+    unrated_res = s.get(tracker_url + "?type=unrated&agent=all&map=all")
+    compe_res = s.get(tracker_url + "?type=competitive&agent=all&map=all")
+    unrated_data = unrated_res.json()
+    compe_data = compe_res.json()
+    unrated_matches = unrated_data["data"]["matches"]
+    compe_matches = compe_data["data"]["matches"]
 
     engine = jinja2.Template(pathlib.Path("template.html").read_text())
     rendered = engine.render(
         unrated_matches=unrated_matches,
+        compe_matches=compe_matches,
         ago=timeago.format,
         date=dateparser.parse,
         tz=tz,
@@ -40,10 +44,16 @@ def main():
     shutil.rmtree("matches", ignore_errors=True)
 
     for unrated in unrated_matches:
-        if not os.path.exists("matches"):
-            os.makedirs("matches")
-        with open(f"matches/{unrated['attributes']['id']}.md", "w") as f:
+        if not os.path.exists("matches/unrated"):
+            os.makedirs("matches/unrated")
+        with open(f"matches/unrated/{unrated['attributes']['id']}.md", "w") as f:
             f.write(f"{unrated['attributes']['id']}" + "\n")
+
+    for compe in compe_matches:
+        if not os.path.exists("matches/compe"):
+            os.makedirs("matches/compe")
+        with open(f"matches/compe/{compe['attributes']['id']}.md", "w") as f:
+            f.write(f"{compe['attributes']['id']}" + "\n")
 
 
 if __name__ == "__main__":
