@@ -41,7 +41,7 @@
           <b>8/16/7</b>
         </td>
         <td>
-          <a href="./matches/compe/3d58a108-eff6-4e51-a75c-f54e74e5292a.md">
+          <a href="./matches/competitive/3d58a108-eff6-4e51-a75c-f54e74e5292a.md">
             Details
           </a>
         </td></tr><tr>
@@ -75,7 +75,7 @@
           <b>14/17/9</b>
         </td>
         <td>
-          <a href="./matches/compe/0dcf4958-f2cc-425b-baf0-3dcf0a321f0d.md">
+          <a href="./matches/competitive/0dcf4958-f2cc-425b-baf0-3dcf0a321f0d.md">
             Details
           </a>
         </td></tr><tr>
@@ -109,7 +109,7 @@
           <b>12/17/10</b>
         </td>
         <td>
-          <a href="./matches/compe/ad13e281-08c0-45c8-a9ba-e1148282e2c3.md">
+          <a href="./matches/competitive/ad13e281-08c0-45c8-a9ba-e1148282e2c3.md">
             Details
           </a>
         </td></tr><tr>
@@ -143,7 +143,7 @@
           <b>10/15/6</b>
         </td>
         <td>
-          <a href="./matches/compe/4fd3fb22-27d3-4674-ae72-db2f60503d26.md">
+          <a href="./matches/competitive/4fd3fb22-27d3-4674-ae72-db2f60503d26.md">
             Details
           </a>
         </td></tr><tr>
@@ -177,7 +177,7 @@
           <b>9/13/6</b>
         </td>
         <td>
-          <a href="./matches/compe/d33b45e6-e153-4314-911b-870d390b05f3.md">
+          <a href="./matches/competitive/d33b45e6-e153-4314-911b-870d390b05f3.md">
             Details
           </a>
         </td></tr><tr>
@@ -211,7 +211,7 @@
           <b>14/17/3</b>
         </td>
         <td>
-          <a href="./matches/compe/d58d0242-596b-4e57-bd2f-1f80b45a15ee.md">
+          <a href="./matches/competitive/d58d0242-596b-4e57-bd2f-1f80b45a15ee.md">
             Details
           </a>
         </td></tr><tr>
@@ -245,7 +245,7 @@
           <b>11/11/8</b>
         </td>
         <td>
-          <a href="./matches/compe/11056d33-3ecb-4ca4-9794-4ef681cf8820.md">
+          <a href="./matches/competitive/11056d33-3ecb-4ca4-9794-4ef681cf8820.md">
             Details
           </a>
         </td></tr><tr>
@@ -279,7 +279,7 @@
           <b>13/20/5</b>
         </td>
         <td>
-          <a href="./matches/compe/78032099-5737-427c-9a16-0aa0d1f5f8a1.md">
+          <a href="./matches/competitive/78032099-5737-427c-9a16-0aa0d1f5f8a1.md">
             Details
           </a>
         </td></tr><tr>
@@ -313,7 +313,7 @@
           <b>12/14/4</b>
         </td>
         <td>
-          <a href="./matches/compe/143efd18-7606-4886-a4c2-225d325c206b.md">
+          <a href="./matches/competitive/143efd18-7606-4886-a4c2-225d325c206b.md">
             Details
           </a>
         </td></tr><tr>
@@ -347,7 +347,7 @@
           <b>15/13/3</b>
         </td>
         <td>
-          <a href="./matches/compe/0d9eaad3-41cc-48b7-ac4a-0d658d8666e3.md">
+          <a href="./matches/competitive/0d9eaad3-41cc-48b7-ac4a-0d658d8666e3.md">
             Details
           </a>
         </td></tr><tr>
@@ -359,7 +359,7 @@
         </td>
         <td>
           <b>
-            Competitive • 3 days ago
+            Competitive • 4 days ago
             <br>
             Bind
           </b>
@@ -381,7 +381,7 @@
           <b>14/3/5</b>
         </td>
         <td>
-          <a href="./matches/compe/289b942a-9e1e-47a9-ab0d-c6ffb659b9ad.md">
+          <a href="./matches/competitive/289b942a-9e1e-47a9-ab0d-c6ffb659b9ad.md">
             Details
           </a>
         </td></tr><tr>
@@ -415,7 +415,7 @@
           <b>27/11/5</b>
         </td>
         <td>
-          <a href="./matches/compe/9ce6dd8f-6621-4adc-a0d4-a7b8f212c8a0.md">
+          <a href="./matches/competitive/9ce6dd8f-6621-4adc-a0d4-a7b8f212c8a0.md">
             Details
           </a>
         </td></tr></table>
