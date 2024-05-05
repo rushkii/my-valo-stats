@@ -6,6 +6,7 @@ import timeago
 import pathlib
 import dateparser
 import pytz
+from typing import Union, Literal
 from datetime import datetime
 from urllib.parse import quote
 from dotenv import load_dotenv
@@ -43,6 +44,35 @@ def get_match_details(match_id: str):
     res = s.get("https://api.tracker.gg/api/v2/valorant/standard/matches/" + match_id)
     return res.json()["data"]
 
+def get_summary_team(team_id: str, segments: dict):
+    t = [i for i in segments if i['type'] == "player-summary"]
+    if team_id != "ffa":
+        t = [i for i in t if i['metadata']['teamId'] == team_id]
+    t.sort(key=lambda i: i['stats']['scorePerRound']['value'], reverse=True)
+    return t
+
+def render_readme(
+    match_data: dict,
+    queue_type: Union[Literal['unrated'], Literal['competitive']]
+):
+    match = get_match_details(match_data['attributes']['id'])
+    segments = match['segments']
+
+    template = pathlib.Path("template-details.html").read_text()
+    engine = jinja2.Template(template)
+    rendered = engine.render(
+        team_a=get_summary_team('Red', segments),
+        team_b=get_summary_team('Blue', segments),
+        competitive=queue_type == 'competitive',
+        get_rating_img=get_rating_img,
+        ago=timeago.format,
+        date=dateparser.parse,
+    )
+    rendered = rendered.replace('\r\n', '\n')
+    path = pathlib.Path(f"matches/{queue_type}/{match_data['attributes']['id']}.md")
+    path.write_text(rendered + "\n", encoding="utf-8")
+
+
 def main():
     tz = pytz.timezone("Asia/Jakarta")
     unrated_matches, compe_matches = get_match_overview()
@@ -63,31 +93,18 @@ def main():
     p.write_text(rendered + "\n")
 
     shutil.rmtree("matches", ignore_errors=True)
+    if not os.path.exists("matches/unrated"):
+        os.makedirs("matches/unrated")
+    if not os.path.exists("matches/competitive"):
+        os.makedirs("matches/competitive")
 
     for unrated in unrated_matches:
-        if not os.path.exists("matches/unrated"):
-            os.makedirs("matches/unrated")
+        if not unrated: continue
+        render_readme(unrated, 'unrated')
 
-        unrated_details = get_match_details(unrated['attributes']['id'])
-        unrated_engine = jinja2.Template(pathlib.Path("template-details.html").read_text())
-        unrated_rendered = unrated_engine.render(
-            unrated_details=unrated_details,
-            get_rating_img=get_rating_img,
-            ago=timeago.format,
-            date=dateparser.parse,
-            tz=tz,
-            now=datetime.now(tz=tz)
-        )
-        unrated_rendered = unrated_rendered.replace('\r\n', '\n')
-
-        unrated_path = pathlib.Path(f"matches/unrated/{unrated['attributes']['id']}.md")
-        unrated_path.write_text(unrated_rendered + "\n")
-
-    for compe in compe_matches:
-        if not os.path.exists("matches/compe"):
-            os.makedirs("matches/compe")
-        with open(f"matches/compe/{compe['attributes']['id']}.md", "w") as f:
-            f.write(f"{compe['attributes']['id']}" + "\n")
+    for competitive in compe_matches:
+        if not competitive: continue
+        render_readme(competitive, 'competitive')
 
 
 if __name__ == "__main__":

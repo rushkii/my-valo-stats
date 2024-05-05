@@ -1,8 +1,15 @@
 <table>
   <tr>
-    <th>Team A</th>
-    <th>Match Rank</th>
-    <th>Tracker Score</th>
+    <th align="center">Team B</th>
+    <th>
+      {%- if competitive -%}
+        Current
+      {%- endif -%}
+      Rank
+    </th>
+    {%- if competitive -%}
+      <th>Tracker Score</th>
+    {%- endif -%}
     <th title="Average Combat Score">ACS</th>
     <th title="Kills">K</th>
     <th title="Deaths">D</th>
@@ -17,7 +24,177 @@
     <th>FD</th>
     <th>MK</th>
   </tr>
+  {%- for match in team_a -%}
+    <tr>
+      <td align="center">
+        <img src="{{ match.metadata.agentImageUrl }}" width="50">
+        <br>
+        <b>
+          {{ match.attributes.platformUserIdentifier }}
+        </b>
+        {%- if competitive -%}
+          <br>
+          <img src="{{ match.stats.rank.metadata.iconUrl }}" width="15">
+          <b>
+            {{ match.stats.rank.displayValue }}
+          </b>
+        {%- endif -%}
+      </td>
+      <td align="center">
+        <img src="{{ match.stats['currRank' if competitive else 'rank'].metadata.iconUrl }}" width="50">
+        <br>
+        <b>{{ match.stats['currRank' if competitive else 'rank'].displayValue }}</b>
+      </td>
+      {%- if competitive -%}
+        <td align="center">
+          <img src="{{ get_rating_img(match.stats.trnPerformanceScore.value) }}" width="40">
+          <br>
+          <b>{{ match.stats.trnPerformanceScore.value }}</b>
+        </td>
+      {%- endif -%}
+      <td>
+        <b>{{ match.stats.scorePerRound.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.kills.value }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.deaths.value }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.assists.value }}</b>
+      </td>
+      <td>
+        <b>
+          {%- if match.stats.kills.value > match.stats.deaths.value -%}
+            +
+          {%- endif -%}
+          {{ match.stats.kills.value - match.stats.deaths.value }}
+        </b>
+      </td>
+      <td>
+        <b>{{ match.stats.kdRatio.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.damageDeltaPerRound.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.damagePerRound.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.hsAccuracy.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.kast.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.firstKills.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.firstDeaths.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.multiKills.displayValue }}</b>
+      </td>
+    </tr>
+  {%- endfor -%}
   <tr>
-    <td></td>
+    <th align="center">Team B</th>
+    <th>
+      {%- if competitive -%}
+        Current
+      {%- endif -%}
+      Rank
+    </th>
+    {%- if competitive -%}
+      <th>Tracker Score</th>
+    {%- endif -%}
+    <th title="Average Combat Score">ACS</th>
+    <th title="Kills">K</th>
+    <th title="Deaths">D</th>
+    <th title="Assists">A</th>
+    <th title="Kill Difference">+/-</th>
+    <th title="Kill/Death Ratio">K/D</th>
+    <th title="Average Damage Delta per Second">DDΔ</th>
+    <th>ADR</th>
+    <th>HS%</th>
+    <th>KAST</th>
+    <th>FK</th>
+    <th>FD</th>
+    <th>MK</th>
   </tr>
+  {%- for match in team_b -%}
+    <tr>
+      <td align="center">
+        <img src="{{ match.metadata.agentImageUrl }}" width="50">
+        <br>
+        <b>
+          {{ match.attributes.platformUserIdentifier }}
+        </b>
+        {%- if competitive -%}
+          <br>
+          <img src="{{ match.stats.rank.metadata.iconUrl }}" width="15">
+          <b>
+            {{ match.stats.rank.displayValue }}
+          </b>
+        {%- endif -%}
+      </td>
+      <td align="center">
+        <img src="{{ match.stats['currRank' if competitive else 'rank'].metadata.iconUrl }}" width="50">
+        <br>
+        <b>{{ match.stats['currRank' if competitive else 'rank'].displayValue }}</b>
+      </td>
+      {%- if competitive -%}
+        <td align="center">
+          <img src="{{ get_rating_img(match.stats.trnPerformanceScore.value) }}" width="40">
+          <br>
+          <b>{{ match.stats.trnPerformanceScore.value }}</b>
+        </td>
+      {%- endif -%}
+      <td>
+        <b>{{ match.stats.scorePerRound.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.kills.value }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.deaths.value }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.assists.value }}</b>
+      </td>
+      <td>
+        <b>
+          {%- if match.stats.kills.value > match.stats.deaths.value -%}
+            +
+          {%- endif -%}
+          {{ match.stats.kills.value - match.stats.deaths.value }}
+        </b>
+      </td>
+      <td>
+        <b>{{ match.stats.kdRatio.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.damageDeltaPerRound.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.damagePerRound.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.hsAccuracy.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.kast.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.firstKills.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.firstDeaths.displayValue }}</b>
+      </td>
+      <td>
+        <b>{{ match.stats.multiKills.displayValue }}</b>
+      </td>
+    </tr>
+  {%- endfor -%}
 </table>
