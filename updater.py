@@ -40,7 +40,7 @@ def get_match_overview():
     compe_res = s.get(url + "?type=competitive&agent=all&map=all")
 
     # debug workflow code
-    print(unrated_res, compe_res, GAMERTAG)
+    print(unrated_res.text, compe_res.text, unrated_res.url, GAMERTAG)
 
     return unrated_res.json()["data"]["matches"], compe_res.json()["data"]["matches"]
 
