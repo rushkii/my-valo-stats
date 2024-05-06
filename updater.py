@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 # Your Valorant's nickname/gamertag e.g: kizu#movq
-GAMERTAG = quote(os.environ.get("GAMERTAG", ""))
+GAMERTAG = quote("kizu#movq")
 s = cloudscraper.create_scraper()
 
 def get_rating(value: int):
