@@ -1,4 +1,4 @@
-name: "Update README.md"
+name: "Update Valorant's Statistics"
 
 on:
   schedule:
