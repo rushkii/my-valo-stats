@@ -59,6 +59,7 @@ def render_readme(
     segments = match['segments']
 
     template = pathlib.Path("template-details.html").read_text()
+
     engine = jinja2.Template(template)
     rendered = engine.render(
         team_a=get_summary_team('Red', segments),
@@ -67,8 +68,8 @@ def render_readme(
         get_rating_img=get_rating_img,
         ago=timeago.format,
         date=dateparser.parse,
-    )
-    rendered = rendered.replace('\r\n', '\n')
+    ).replace('\r\n', '\n')
+
     path = pathlib.Path(f"matches/{queue_type}/{match_data['attributes']['id']}.md")
     path.write_text(rendered + "\n", encoding="utf-8")
 
@@ -86,8 +87,7 @@ def main():
         date=dateparser.parse,
         tz=tz,
         now=datetime.now(tz=tz)
-    )
-    rendered = rendered.replace('\r\n', '\n')
+    ).replace('\r\n', '\n')
 
     p = pathlib.Path("README.md")
     p.write_text(rendered + "\n")
