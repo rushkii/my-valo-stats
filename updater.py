@@ -38,6 +38,10 @@ def get_match_overview():
     url = f"https://api.tracker.gg/api/v2/valorant/standard/matches/riot/{GAMERTAG}"
     unrated_res = s.get(url + "?type=unrated&agent=all&map=all")
     compe_res = s.get(url + "?type=competitive&agent=all&map=all")
+
+    # debug workflow code
+    print(unrated_res.text, compe_res.text, unrated_res.url, GAMERTAG)
+
     return unrated_res.json()["data"]["matches"], compe_res.json()["data"]["matches"]
 
 def get_match_details(match_id: str):
