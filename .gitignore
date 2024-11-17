@@ -1,1 +1,19 @@
-*.env
+experimentals
+node_modules
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

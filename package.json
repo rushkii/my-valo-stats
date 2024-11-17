@@ -1,0 +1,35 @@
+{
+    "name": "my-valo-stats",
+    "version": "1.0.0",
+    "description": "My Valorant's Statistic",
+    "keywords": [
+        "Valorant",
+        "Valorant Statistic",
+        "Valorant Stats"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "generate": "npx ts-node ./src/index.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rushkii/my-valo-stats.git"
+    },
+    "author": "rushkii",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rushkii/my-valo-stats/issues"
+    },
+    "homepage": "https://github.com/rushkii/my-valo-stats#readme",
+    "dependencies": {
+        "canvas": "^2.11.2",
+        "glob": "^11.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.9.0",
+        "prettier": "^3.3.3",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.8.1",
+        "typescript": "^5.6.3"
+    }
+}

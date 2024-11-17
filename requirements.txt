@@ -1,5 +1,0 @@
-jinja2
-cloudscraper
-timeago
-dateparser
-python-dotenv
