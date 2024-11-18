@@ -5,6 +5,7 @@ import samples from './data/samples.json';
 import { save } from './lib/canvas/save';
 import { loadFonts } from './lib/canvas/loadFonts';
 import { getRrankImage } from './lib/rankImage';
+import { writeTextUnderline } from './lib/canvas/textUnderline';
 
 //
 
@@ -178,6 +179,19 @@ export const generateProfileCard = async () => {
 
     spaceBetweenAgent += canvas.width / 2 - topAgentIconSize + 13;
   }
+
+  // display watermark
+  ctx.font = '20px "Beaufort-HeavyItalic"';
+  ctx.fillStyle = '#fff';
+  ctx.fillText('This image is generated using NodeJS Canvas', canvas.width / 2, canvas.height - 55);
+
+  ctx.font = '15px "Beaufort-BoldItalic"';
+  writeTextUnderline(ctx, {
+    text: 'https://github.com/rushkii/my-valo-stats',
+    x: canvas.width / 2,
+    y: canvas.height - marginX,
+    color: '#0ea5e9'
+  });
 
   // save it!
   save(canvas);
