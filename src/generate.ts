@@ -123,10 +123,12 @@ export const generateProfileCard = async () => {
   let spaceBetweenAgent = 0;
   const topAgentIconSize = 80;
   const marginYTopAgent = 20;
+
+  // render top 3 agents
   for (const agent of top3Agents) {
     const [agentIcon] = await loadImages([agent.characterURL]);
 
-    // make player avatar full rounded
+    // make agent avatar full rounded
     ctx.save();
     ctx.beginPath();
     ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
@@ -154,7 +156,7 @@ export const generateProfileCard = async () => {
     );
     ctx.restore();
 
-    spaceBetweenAgent += canvas.width / 2 - topAgentIconSize + 15;
+    spaceBetweenAgent += canvas.width / 2 - topAgentIconSize + 13;
   }
 
   // save it!
