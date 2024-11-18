@@ -1,6 +1,6 @@
 import { createCanvas } from 'canvas';
 import { loadImages } from './lib/canvas/loadImages';
-import { makeCanvasRounded } from './lib/canvas/makeRounded';
+import { makeAvatarRounded, makeCanvasRounded } from './lib/canvas/makeRounded';
 import samples from './data/samples.json';
 import { save } from './lib/canvas/save';
 import { loadFonts } from './lib/canvas/loadFonts';
@@ -48,10 +48,7 @@ export const generateProfileCard = async () => {
   ctx.fillRect(0, 0, canvas.width, background.height);
 
   // make player avatar full rounded
-  ctx.save();
-  ctx.beginPath();
-  ctx.arc(canvas.width / 2, background.height / 2 - 15, 40, 0, Math.PI * 2, false);
-  ctx.clip();
+  makeAvatarRounded(ctx, { x: canvas.width / 2, y: background.height / 2 - 15, radius: 40 });
   ctx.drawImage(
     avatar,
     canvas.width / 2 - avatar.width / 2 + 24,
@@ -116,7 +113,6 @@ export const generateProfileCard = async () => {
   ctx.restore();
 
   ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-  ctx.textAlign = 'start';
   ctx.font = '13px "Beaufort-Medium"';
   ctx.fillText('K/D Ratio Per Agent', marginX, 80 + background.height + marginY);
 
@@ -128,19 +124,14 @@ export const generateProfileCard = async () => {
   for (const agent of top3Agents) {
     const [agentIcon] = await loadImages([agent.characterURL]);
 
-    // make agent avatar full rounded
-    ctx.save();
-    ctx.beginPath();
     ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-    ctx.arc(
-      38 + marginX + spaceBetweenAgent,
-      115 + marginYTopAgent + background.height + marginY,
-      40,
-      0,
-      Math.PI * 2,
-      false
-    );
-    ctx.clip();
+
+    // make agent avatar full rounded
+    makeAvatarRounded(ctx, {
+      x: 38 + marginX + spaceBetweenAgent,
+      y: 115 + marginYTopAgent + background.height + marginY,
+      radius: 40
+    });
     ctx.fillRect(
       marginX + spaceBetweenAgent - 5,
       73 + marginYTopAgent + background.height + marginY,
