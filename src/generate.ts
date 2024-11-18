@@ -147,6 +147,35 @@ export const generateProfileCard = async () => {
     );
     ctx.restore();
 
+    // K/D Ratio
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'center';
+    ctx.font = '20px "Beaufort-Heavy"';
+    ctx.fillText(
+      agent.kdRatio.toFixed(2),
+      38 + marginX + spaceBetweenAgent,
+      180 + marginYTopAgent + background.height + marginY
+    );
+
+    // K/D Top Percent
+    ctx.font = '10px "Beaufort-Bold"';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+    const labelPercent = 'Top ';
+    const valuePercent = agent.kdPercentage.toFixed(0) + '%';
+    const labelMeasure = ctx.measureText(labelPercent);
+    const percentMeasure = ctx.measureText(valuePercent);
+    ctx.fillText(
+      labelPercent,
+      40 + marginX - percentMeasure.actualBoundingBoxLeft + spaceBetweenAgent,
+      195 + marginYTopAgent + background.height + marginY
+    );
+    ctx.fillStyle = '#fff';
+    ctx.fillText(
+      valuePercent,
+      40 + marginX + labelMeasure.actualBoundingBoxRight + spaceBetweenAgent,
+      195 + marginYTopAgent + background.height + marginY
+    );
+
     spaceBetweenAgent += canvas.width / 2 - topAgentIconSize + 13;
   }
 
