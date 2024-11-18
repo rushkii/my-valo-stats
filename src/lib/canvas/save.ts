@@ -1,13 +1,15 @@
 import { Canvas } from 'canvas';
-import { writeFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { dirname } from 'path';
 
-export const save = async (canvas: Canvas) => {
+export const save = async (canvas: Canvas, path: string) => {
   // save the generated image.
   const buffer = canvas.toBuffer();
-  const output = 'generated-profile.png';
+  const directory = dirname(path);
 
-  writeFileSync(output, buffer);
+  if (!existsSync(directory)) mkdirSync(directory, { recursive: true });
+  writeFileSync(path, buffer);
 
-  console.log(`Image saved to \x1b[1m${output}\x1b[0m`);
+  console.log(`Image saved to \x1b[1m${path}\x1b[0m`);
   process.exit(1);
 };

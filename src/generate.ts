@@ -194,5 +194,5 @@ export const generateProfileCard = async () => {
   });
 
   // save it!
-  save(canvas);
+  save(canvas, `output/profile.png`);
 };
