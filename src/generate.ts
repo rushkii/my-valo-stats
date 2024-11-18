@@ -1,6 +1,6 @@
 import { createCanvas } from 'canvas';
 import { loadImages } from './lib/canvas/loadImages';
-import { makeRounded } from './lib/canvas/makeRounded';
+import { makeCanvasRounded } from './lib/canvas/makeRounded';
 import samples from './data/samples.json';
 import { save } from './lib/canvas/save';
 import { loadFonts } from './lib/canvas/loadFonts';
@@ -31,7 +31,7 @@ export const generateProfileCard = async () => {
   // const [] = await loadImages([])
 
   // make the canvas background
-  makeRounded(ctx, canvas.width, canvas.height);
+  makeCanvasRounded(ctx, canvas.width, canvas.height);
 
   // background color for the main canvas background
   ctx.fillStyle = '#181414';
