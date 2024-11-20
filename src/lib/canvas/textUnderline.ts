@@ -1,15 +1,5 @@
 import { CanvasRenderingContext2D } from 'canvas';
-
-interface MeasureType {
-  width: number;
-  actualBoundingBoxLeft: number;
-  actualBoundingBoxRight: number;
-  actualBoundingBoxAscent: number;
-  actualBoundingBoxDescent: number;
-  emHeightAscent?: number;
-  emHeightDescent?: number;
-  alphabeticBaseline?: number;
-}
+import { MeasureType } from '../types';
 
 export const writeTextUnderline = (
   ctx: CanvasRenderingContext2D,
