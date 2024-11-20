@@ -5,3 +5,11 @@ export type MeasureType = TextMetrics & {
   emHeightDescent?: number;
   alphabeticBaseline?: number;
 };
+
+export interface DrawRoundedRectOpts {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  radius: number;
+}
