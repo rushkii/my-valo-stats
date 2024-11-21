@@ -1,4 +1,5 @@
-import { rmSync } from 'fs';
+import { readFileSync, rmSync, writeFileSync } from 'fs';
+import { globSync } from 'glob';
 
 export const getRrankImage = (rank: string) => {
   return `./src/assets/images/ranks/${rank.toLowerCase().replace(' ', '_')}_small.png`;
@@ -18,6 +19,31 @@ export const toHumanTime = (millis: number) => {
   result = `${pad(minutes)}:${pad(seconds)}`;
 
   return result;
+};
+
+const naturalSort = (a: string, b: string) => {
+  return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+};
+
+export const rewriteMatchHistory = () => {
+  const readme = readFileSync('README.md', 'utf8');
+
+  const files = globSync('output/matches/*.png', {
+    posix: true,
+    dotRelative: true,
+    ignore: 'output/**/details'
+  });
+  const results = files
+    .toSorted((a, b) => naturalSort(a, b))
+    .map((e) => `  <img src="${e}" />`)
+    .join('\n');
+
+  const updated = readme.replace(
+    /<!-- BEGIN MATCH HISTORY -->[\s\S]*?<!-- END MATCH HISTORY -->/,
+    `<!-- BEGIN MATCH HISTORY -->\n${results}\n<!-- END MATCH HISTORY -->`
+  );
+
+  writeFileSync('README.md', updated);
 };
 
 export const resetOutputs = () => {
