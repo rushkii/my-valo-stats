@@ -1,3 +1,5 @@
+import { rmSync } from 'fs';
+
 export const getRrankImage = (rank: string) => {
   return `./src/assets/images/ranks/${rank.toLowerCase().replace(' ', '_')}_small.png`;
 };
@@ -16,4 +18,8 @@ export const toHumanTime = (millis: number) => {
   result = `${pad(minutes)}:${pad(seconds)}`;
 
   return result;
+};
+
+export const resetOutputs = () => {
+  rmSync('output', { recursive: true, force: true });
 };
