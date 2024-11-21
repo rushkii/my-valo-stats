@@ -2,6 +2,7 @@
   "include": ["./src/**/*.ts"],
   "exclude": ["./experimentals"],
   "compilerOptions": {
+    "target": "ES2023",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
