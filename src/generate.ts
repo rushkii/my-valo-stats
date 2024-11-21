@@ -309,6 +309,29 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
     agentScale
   );
 
+  ctx.font = '20px "Beaufort-Heavy"';
+  ctx.textAlign = 'start';
+  ctx.textBaseline = 'middle';
+
+  const spans = [
+    { text: '2', color: 'white' },
+    { text: '/', color: '#ffffff80' },
+    { text: '15', color: isVictory ? '#22c55e' : '#ef4444' },
+    { text: '/', color: '#ffffff80' },
+    { text: '2', color: 'white' }
+  ];
+
+  const spaceScore = 2;
+  let x = marginX * 4 + agentScale + 30;
+  const y = canvas.height / 2;
+
+  spans.forEach((span) => {
+    const width = ctx.measureText(span.text).width;
+    ctx.fillStyle = span.color;
+    ctx.fillText(span.text, x, y);
+    x += width + spaceScore;
+  });
+
   const filename = `${+key + 1}_${myself.agentNameLoc}_${match.mapTitleLoc}_${match.matchId}`;
   save(canvas, `output/matches/${filename}.png`);
 };
