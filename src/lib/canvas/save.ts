@@ -11,5 +11,4 @@ export const save = async (canvas: Canvas, path: string) => {
   writeFileSync(path, buffer);
 
   console.log(`Image saved to \x1b[1m${path}\x1b[0m`);
-  process.exit(1);
 };
