@@ -4,18 +4,21 @@ import { makeAvatarRounded, makeCanvasRounded } from './lib/canvas/makeRounded';
 import samples from './data/samples.json';
 import { save } from './lib/canvas/save';
 import { loadFonts } from './lib/canvas/loadFonts';
-import { getRrankImage } from './lib/rankImage';
+import { getRrankImage, toHumanTime } from './lib/utils';
 import { writeTextUnderline } from './lib/canvas/textUnderline';
+import { drawRoundedRect } from './lib/canvas/roundRect';
+import { MatchType, MeasureType } from './lib/types';
 
 //
 
-const canvas = createCanvas(576, 500);
-const ctx = canvas.getContext('2d');
 const { valAgent, valHistory, valMatches } = samples.valorant;
 
 //
 
 export const generateProfileCard = async () => {
+  const canvas = createCanvas(576, 500);
+  const ctx = canvas.getContext('2d');
+
   // load all fonts
   await loadFonts();
 
@@ -195,4 +198,127 @@ export const generateProfileCard = async () => {
 
   // save it!
   save(canvas, `output/profile.png`);
+};
+
+const render = async ({ key, match }: { key: number; match: MatchType }) => {
+  const canvas = createCanvas(768, 150);
+  const ctx = canvas.getContext('2d');
+
+  const participants = match.participants;
+  const myself = participants.find((e) => e.playerPUUID === valAgent.puuid)!;
+  const matchResult = match.matchResult;
+  const isVictory = matchResult === 'VICTORY';
+
+  // background color for the main canvas background
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // draw map background
+  const bg = await loadImages([match.mapBackground]);
+  ctx.save();
+  ctx.globalAlpha = 0.7;
+  ctx.drawImage(bg[0], 0, 0, canvas.width, canvas.height);
+  ctx.restore();
+
+  // draw line on the left
+  const lineLeftWidth = 10;
+  ctx.save();
+  ctx.beginPath();
+  ctx.strokeStyle = isVictory ? '#22c55e' : '#ef4444';
+  ctx.lineWidth = lineLeftWidth;
+  ctx.moveTo(0, 0);
+  ctx.lineTo(0, canvas.height);
+  ctx.stroke();
+  ctx.restore();
+
+  // make background color with less opacity
+  ctx.fillStyle = isVictory ? '#22c55e26' : '#ef444426';
+  ctx.fillRect(lineLeftWidth - lineLeftWidth / 2, 0, canvas.width - 5, canvas.height);
+
+  // make background color layer with darker
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+  ctx.fillRect(lineLeftWidth - lineLeftWidth / 2, 0, canvas.width - 5, canvas.height);
+
+  const marginX = 40;
+  const marginY = 30;
+
+  // queue type e.g: unrated/compe/dm/tdm
+  ctx.fillStyle = '#fff';
+  ctx.font = '20px "Beaufort-Heavy"';
+  ctx.textAlign = 'center';
+  ctx.fillText(match.queueTypeLoc, marginX * 2, marginY);
+
+  // map name in capitalize case
+  ctx.font = '15px "Beaufort-Heavy"';
+  ctx.fillText(match.mapTitleLoc, marginX * 2, marginY + 20);
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.fillStyle = isVictory ? '#22c55e' : '#ef4444';
+
+  // match result text calculation for responsive positions
+  const matchMeasure: MeasureType = ctx.measureText(matchResult);
+  const textWidth = matchMeasure.width;
+  const textHeight = matchMeasure.actualBoundingBoxAscent + matchMeasure.actualBoundingBoxDescent;
+  const textBoundCenter = matchMeasure.actualBoundingBoxRight + matchMeasure.emHeightDescent! + 2;
+
+  const padding = 10;
+  const radius = 15;
+
+  const rectWidth = textWidth + padding * 2;
+  const rectHeight = textHeight + padding * 2;
+
+  // make a rounded rectangle/box for the match queue type text
+  drawRoundedRect(ctx, {
+    x: marginX * 2 - textBoundCenter,
+    y: (canvas.height - rectHeight) / 2 + 10,
+    width: rectWidth - 3,
+    height: rectHeight - 3,
+    radius
+  });
+
+  // write match queue type
+  ctx.font = '15px "Beaufort-Bold"';
+  ctx.fillStyle = '#fff';
+  ctx.fillText(matchResult, marginX * 2, (canvas.height + padding) / 2 + 10);
+  ctx.restore();
+
+  // game duration
+  ctx.fillText(toHumanTime(match.gameLengthMillis), marginX * 2, marginY + 100);
+
+  // separator
+  ctx.save();
+  ctx.beginPath();
+  ctx.strokeStyle = '#ffffff33';
+  ctx.lineWidth = 3;
+  ctx.moveTo(marginX * 2 + marginX * 2, 10);
+  ctx.lineTo(marginX * 2 + marginX * 2, canvas.height - 10);
+  ctx.stroke();
+  ctx.restore();
+
+  // agent image
+  const agentScale = 80;
+  const ag = await loadImages([
+    match.participants.find((e) => e.playerPUUID === valAgent.puuid)!.agentIcon
+  ]);
+  ctx.drawImage(
+    ag[0],
+    marginX * 4 + 20,
+    canvas.height / 2 - agentScale / 2,
+    agentScale,
+    agentScale
+  );
+
+  const filename = `${+key + 1}_${myself.agentNameLoc}_${match.mapTitleLoc}_${match.matchId}`;
+  save(canvas, `output/matches/${filename}.png`);
+};
+
+export const generateMatches = async () => {
+  // render Promises
+  const renders = valMatches.map((e, i) => {
+    const options = { match: e, key: i };
+    return render(options);
+  });
+
+  await Promise.all(renders);
 };
