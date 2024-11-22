@@ -4,10 +4,10 @@ import { makeAvatarRounded, makeCanvasRounded } from './lib/canvas/makeRounded';
 import samples from './data/samples.json';
 import { save } from './lib/canvas/save';
 import { loadFonts } from './lib/canvas/loadFonts';
-import { getRrankImage, toHumanTime } from './lib/utils';
+import { getRrankImage, loadElementFromString, toHumanTime } from './lib/utils';
 import { writeTextUnderline } from './lib/canvas/textUnderline';
 import { drawRoundedRect } from './lib/canvas/roundRect';
-import { MatchType, MeasureType } from './lib/types';
+import { ExtractedElement, MatchType, MeasureType } from './lib/types';
 
 //
 
@@ -310,12 +310,28 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
   ctx.textAlign = 'start';
   ctx.textBaseline = 'middle';
 
+  const [kill, death, assist] = myself.kda.split('/');
+  const resultColor = isVictory ? '#22c55e' : '#ef4444';
+
+  const score = `<span color="white">
+    <span>${kill}</span>
+    <span color="#ffffff80">/</span>
+    <span color="${resultColor}">${death}</span>
+    <span color="#ffffff80">/</span>
+    <span>${assist}</span>
+  </span>`;
+
+  const spanObj = loadElementFromString(score);
+
   const spans = [
-    { text: '2', color: 'white' },
-    { text: '/', color: '#ffffff80' },
-    { text: '15', color: isVictory ? '#22c55e' : '#ef4444' },
-    { text: '/', color: '#ffffff80' },
-    { text: '2', color: 'white' }
+    ...spanObj.content.map((e) => {
+      const span = e as ExtractedElement;
+
+      return {
+        text: span.content.join(),
+        color: span.attributes.color ?? spanObj.attributes.color!
+      };
+    })
   ];
 
   const spaceScore = 2;
