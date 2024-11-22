@@ -31,9 +31,6 @@ export const generateProfileCard = async () => {
     getRrankImage(valAgent.rank.rankName)
   ]);
 
-  // load rank images from URLs using Promise.all()
-  // const [] = await loadImages([])
-
   // make the canvas background
   makeCanvasRounded(ctx, canvas.width, canvas.height);
 
