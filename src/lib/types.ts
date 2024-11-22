@@ -49,3 +49,10 @@ export interface ParticipantType {
   firstBlood: number;
   isExpandable: boolean;
 }
+
+export type ContentElement = ExtractedElement | string;
+export interface ExtractedElement {
+  tagName: string;
+  attributes: { [key: string]: string | undefined };
+  content: ContentElement[];
+}
