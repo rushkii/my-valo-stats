@@ -290,6 +290,7 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
     agentScale
   );
 
+  // write K/D/A
   ctx.font = '20px "Beaufort-Heavy"';
   ctx.textAlign = 'start';
   ctx.textBaseline = 'middle';
@@ -297,7 +298,7 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
   const [kill, death, assist] = myself.kda.split('/');
   const resultColor = isVictory ? '#22c55e' : '#ef4444';
 
-  const score = `<span color="white">
+  const kda = `<span color="white">
     <span>${kill}</span>
     <span color="#ffffff80">/</span>
     <span color="${resultColor}">${death}</span>
@@ -305,7 +306,7 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
     <span>${assist}</span>
   </span>`;
 
-  const spanObj = loadElementFromString(score);
+  const spanObj = loadElementFromString(kda);
 
   const spans = [
     ...spanObj.content.map((e) => {
@@ -318,7 +319,7 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
     })
   ];
 
-  const spaceScore = 2;
+  const spaceKda = 2;
   let x = marginX * 4 + agentScale + 30;
   const y = canvas.height / 2;
 
@@ -326,7 +327,7 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
     const width = ctx.measureText(span.text).width;
     ctx.fillStyle = span.color;
     ctx.fillText(span.text, x, y);
-    x += width + spaceScore;
+    x += width + spaceKda;
   });
 
   const filename = `${+key + 1}_${myself.agentNameLoc}_${match.mapTitleLoc}_${match.matchId}`;
