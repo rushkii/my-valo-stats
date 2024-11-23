@@ -6,8 +6,8 @@ import { save } from './lib/canvas/save';
 import { loadFonts } from './lib/canvas/loadFonts';
 import { getRrankImage, loadElementFromString, toHumanTime } from './lib/utils';
 import { writeTextUnderline } from './lib/canvas/textUnderline';
-import { drawRoundedRect } from './lib/canvas/roundRect';
-import { ExtractedElement, MatchType, MeasureType } from './lib/types';
+import { ExtractedElement, MatchType } from './lib/types';
+import { writeTextWithRounded } from './lib/canvas/writeTextWithRounded';
 
 //
 
@@ -249,36 +249,20 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
   ctx.font = '15px "Beaufort-Heavy"';
   ctx.fillText(match.mapTitleLoc, marginX * 2, marginY + 20);
 
-  ctx.save();
-  ctx.beginPath();
-  ctx.fillStyle = isVictory ? '#22c55e' : '#ef4444';
-
-  // match result text calculation for responsive positions
-  const matchMeasure: MeasureType = ctx.measureText(matchResult);
-  const textWidth = matchMeasure.width;
-  const textHeight = matchMeasure.actualBoundingBoxAscent + matchMeasure.actualBoundingBoxDescent;
-  const textBoundCenter = matchMeasure.actualBoundingBoxRight + matchMeasure.emHeightDescent! + 2;
-
+  // match result rounded
   const padding = 10;
-  const radius = 15;
-
-  const rectWidth = textWidth + padding * 2;
-  const rectHeight = textHeight + padding * 2;
-
-  // make a rounded rectangle/box for the match queue type text
-  drawRoundedRect(ctx, {
-    x: marginX * 2 - textBoundCenter,
-    y: (canvas.height - rectHeight) / 2 + 10,
-    width: rectWidth - 3,
-    height: rectHeight - 3,
-    radius
+  writeTextWithRounded(ctx, {
+    text: matchResult,
+    x: marginX * 2,
+    y: canvas.height / 2 + 10,
+    textColor: '#fff',
+    backgroundColor: isVictory ? '#22c55e' : '#ef4444',
+    font: '15px "Beaufort-Bold"',
+    align: 'center',
+    baseline: 'middle',
+    padding: padding,
+    radius: 15
   });
-
-  // write match queue type
-  ctx.font = '15px "Beaufort-Bold"';
-  ctx.fillStyle = '#fff';
-  ctx.fillText(matchResult, marginX * 2, (canvas.height + padding) / 2 + 10);
-  ctx.restore();
 
   // game duration
   ctx.fillText(toHumanTime(match.gameLengthMillis), marginX * 2, marginY + 100);
