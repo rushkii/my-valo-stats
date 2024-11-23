@@ -2,7 +2,7 @@ import { readFileSync, rmSync, writeFileSync } from 'fs';
 import { globSync } from 'glob';
 import * as cheerio from 'cheerio';
 import { Element } from 'domhandler';
-import { ContentElement, ExtractedElement } from './types';
+import { ContentElement, ExtractedElement, ParticipantType } from './types';
 
 export const getRrankImage = (rank: string) => {
   return `./src/assets/images/ranks/${rank.toLowerCase().replace(' ', '_')}_small.png`;
@@ -84,4 +84,8 @@ export const loadElementFromString = (element: string) => {
   const $ = cheerio.load(element);
   const root = $('span').first();
   return getElementObject(root, $);
+};
+
+export const isMvp = (puuid: string, participants: ParticipantType[]) => {
+  return participants.toSorted((a, b) => b.score - a.score)[0].playerPUUID === puuid;
 };
