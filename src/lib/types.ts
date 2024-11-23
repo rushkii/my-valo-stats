@@ -1,4 +1,10 @@
-import { TextMetrics } from 'canvas';
+import {
+  CanvasGradient,
+  CanvasPattern,
+  CanvasTextAlign,
+  CanvasTextBaseline,
+  TextMetrics
+} from 'canvas';
 
 export type MeasureType = TextMetrics & {
   emHeightAscent?: number;
@@ -55,4 +61,17 @@ export interface ExtractedElement {
   tagName: string;
   attributes: { [key: string]: string | undefined };
   content: ContentElement[];
+}
+
+export interface WriteTextWithRoundedOpts {
+  text: string;
+  font: string;
+  textColor: string | CanvasGradient | CanvasPattern;
+  backgroundColor: string | CanvasGradient | CanvasPattern;
+  align: CanvasTextAlign;
+  baseline: CanvasTextBaseline;
+  x: number;
+  y: number;
+  padding: number;
+  radius: number;
 }
