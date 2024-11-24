@@ -4,7 +4,7 @@ import { makeAvatarRounded, makeCanvasRounded } from './lib/canvas/makeRounded';
 import samples from './data/samples.json';
 import { save } from './lib/canvas/save';
 import { loadFonts } from './lib/canvas/loadFonts';
-import { getRrankImage, loadElementFromString, toHumanTime } from './lib/utils';
+import { getRrankImage, isMvp, loadElementFromString, toHumanTime } from './lib/utils';
 import { writeTextUnderline } from './lib/canvas/textUnderline';
 import { ExtractedElement, MatchType } from './lib/types';
 import { writeTextWithRounded } from './lib/canvas/writeTextWithRounded';
@@ -321,7 +321,7 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
 
   const spaceKda = 2;
   let x = marginX * 4 + agentScale + 30;
-  const y = canvas.height / 2;
+  const y = canvas.height / 2 - (isMvp(valAgent.puuid, match.participants) ? 15 : 0);
 
   spans.forEach((span) => {
     const width = ctx.measureText(span.text).width;
@@ -329,6 +329,22 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
     ctx.fillText(span.text, x, y);
     x += width + spaceKda;
   });
+
+  // am I MVP?
+  if (isMvp(valAgent.puuid, match.participants)) {
+    writeTextWithRounded(ctx, {
+      text: myself.flair!,
+      x: marginX * 4 + agentScale + 30,
+      y: canvas.height / 2 + 15,
+      textColor: '#fde047',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      font: '10px "Beaufort-Bold"',
+      align: 'start',
+      baseline: 'middle',
+      padding: padding,
+      radius: 15
+    });
+  }
 
   const filename = `${+key + 1}_${myself.agentNameLoc}_${match.mapTitleLoc}_${match.matchId}`;
   save(canvas, `output/matches/${filename}.png`);
