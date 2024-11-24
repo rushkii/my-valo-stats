@@ -241,13 +241,15 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
 
   // queue type e.g: unrated/compe/dm/tdm
   ctx.fillStyle = '#fff';
-  ctx.font = '20px "Beaufort-Heavy"';
+  ctx.font = '16px "Beaufort-Heavy"';
   ctx.textAlign = 'center';
   ctx.fillText(match.queueTypeLoc, marginX * 2, marginY);
 
   // map name in capitalize case
-  ctx.font = '15px "Beaufort-Heavy"';
+  ctx.save();
+  ctx.font = '15px "Beaufort-MediumItalic"';
   ctx.fillText(match.mapTitleLoc, marginX * 2, marginY + 20);
+  ctx.restore();
 
   // match result rounded
   const padding = 10;
