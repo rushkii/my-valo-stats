@@ -9,6 +9,4 @@ export const save = async (canvas: Canvas, path: string) => {
 
   if (!existsSync(directory)) mkdirSync(directory, { recursive: true });
   writeFileSync(path, buffer);
-
-  console.log(`Image saved to \x1b[1m${path}\x1b[0m`);
 };
