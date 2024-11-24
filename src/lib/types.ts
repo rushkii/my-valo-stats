@@ -48,6 +48,7 @@ export interface ParticipantType {
   agentNameLoc: string;
   team: string;
   kda: string;
+  flair?: string;
   score: number;
   econRating: number;
   plants: number;
