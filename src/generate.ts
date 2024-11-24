@@ -348,6 +348,36 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
     });
   }
 
+  const scores = `<span color="white">
+    <span color="#22c55e">${match.wins}</span>
+    <span>:</span>
+    <span color="#ef4444">${match.loses}</span>
+  </span>`;
+
+  const spanScoreObj = loadElementFromString(scores);
+
+  const spanScores = [
+    ...spanScoreObj.content.map((e) => {
+      const span = e as ExtractedElement;
+
+      return {
+        text: span.content.join(),
+        color: span.attributes.color ?? spanScoreObj.attributes.color!
+      };
+    })
+  ];
+
+  const spaceScores = 2;
+  let scoreX = canvas.width / 2 + marginX * 2;
+  const scoreY = canvas.height / 2;
+
+  spanScores.forEach((span) => {
+    const width = ctx.measureText(span.text).width;
+    ctx.fillStyle = span.color;
+    ctx.fillText(span.text, scoreX, scoreY);
+    scoreX += width + spaceScores;
+  });
+
   const filename = `${+key + 1}_${myself.agentNameLoc}_${match.mapTitleLoc}_${match.matchId}`;
   save(canvas, `output/matches/${filename}.png`);
 };
