@@ -87,5 +87,5 @@ export const loadElementFromString = (element: string) => {
 };
 
 export const isMvp = (puuid: string, participants: ParticipantType[]) => {
-  return participants.toSorted((a, b) => b.score - a.score)[0].playerPUUID === puuid;
+  return participants.find((e) => e.flair)?.playerPUUID === puuid;
 };
