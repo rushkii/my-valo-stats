@@ -212,10 +212,7 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
 
   // draw map background
   const bg = await loadImages([match.mapBackground]);
-  ctx.save();
-  ctx.globalAlpha = 0.7;
   ctx.drawImage(bg[0], 0, 0, canvas.width, canvas.height);
-  ctx.restore();
 
   // draw line on the left
   const lineLeftWidth = 10;
@@ -229,11 +226,11 @@ const render = async ({ key, match }: { key: number; match: MatchType }) => {
   ctx.restore();
 
   // make background color with less opacity
-  ctx.fillStyle = isVictory ? '#22c55e26' : '#ef444426';
+  ctx.fillStyle = isVictory ? '#22c55e4d' : '#ef44444d';
   ctx.fillRect(lineLeftWidth - lineLeftWidth / 2, 0, canvas.width - 5, canvas.height);
 
   // make background color layer with darker
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
   ctx.fillRect(lineLeftWidth - lineLeftWidth / 2, 0, canvas.width - 5, canvas.height);
 
   const marginX = 40;
